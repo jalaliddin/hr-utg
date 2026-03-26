@@ -1,0 +1,12 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(grep -n \"arrival_date\\\\|departure_date\" /home/eversoft/Projects/hr2.urtg.uz/backend/database/migrations/*.php)",
+      "Bash(vendor/bin/pint --dirty --format agent app/Http/Controllers/Api/DashboardController.php app/Http/Controllers/Api/ReportController.php app/Http/Controllers/Api/DepartmentController.php app/Http/Controllers/Api/WorkScheduleController.php)",
+      "Bash(vendor/bin/pint --dirty --format agent app/Http/Controllers/Api/AttendanceEntryController.php app/Http/Controllers/Api/PublicHolidayController.php app/Services/TabelCalculatorService.php app/Models/AttendanceEntry.php app/Models/MonthlyTabel.php app/Models/PublicHoliday.php)",
+      "Bash(vendor/bin/pint --dirty --format agent routes/api.php)",
+      "Bash(vendor/bin/pint app/Services/AutoAttendanceService.php app/Services/AutoTripService.php app/Http/Controllers/Api/BusinessTripController.php app/Console/Commands/SyncAttendance.php --format agent)",
+      "Bash(vendor/bin/pint database/migrations/2026_03_26_103318_add_device_source_to_attendance_entries.php --format agent)"
+    ]
+  }
+}
