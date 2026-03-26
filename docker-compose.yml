@@ -21,9 +21,8 @@ services:
     build:
       context: ./backend
       dockerfile: Dockerfile
-    env_file:
-      - ./backend/.env
     volumes:
+      - ./backend/.env:/var/www/.env:ro
       - storage:/var/www/storage/app/public
     depends_on:
       mysql:
@@ -38,9 +37,8 @@ services:
       context: ./backend
       dockerfile: Dockerfile
     command: ["php", "artisan", "queue:work", "--sleep=3", "--tries=3", "--timeout=90", "--no-interaction"]
-    env_file:
-      - ./backend/.env
     volumes:
+      - ./backend/.env:/var/www/.env:ro
       - storage:/var/www/storage/app/public
     depends_on:
       - app
@@ -54,9 +52,8 @@ services:
       context: ./backend
       dockerfile: Dockerfile
     command: ["/bin/sh", "-c", "while true; do php artisan schedule:run --no-interaction >> /dev/null 2>&1; sleep 60; done"]
-    env_file:
-      - ./backend/.env
     volumes:
+      - ./backend/.env:/var/www/.env:ro
       - storage:/var/www/storage/app/public
     depends_on:
       - app
