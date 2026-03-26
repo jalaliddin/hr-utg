@@ -20,6 +20,9 @@ Route::prefix('v1')->group(function () {
     // Auth
     Route::post('/login', [AuthController::class, 'login']);
 
+    // Qurilma rasmlari — auth shart emas (log ID tasodifiy ULID)
+    Route::get('/attendance/logs/{log}/picture', [AttendanceController::class, 'picture']);
+
     Route::middleware('auth:sanctum')->group(function () {
         Route::post('/logout', [AuthController::class, 'logout']);
         Route::get('/me', [AuthController::class, 'me']);
@@ -55,7 +58,6 @@ Route::prefix('v1')->group(function () {
         Route::get('/devices/{device}/sync-logs', [DeviceController::class, 'syncLogs']);
 
         // Attendance
-        Route::get('/attendance/logs/{log}/picture', [AttendanceController::class, 'picture']);
         Route::get('/attendance/daily', [AttendanceController::class, 'daily']);
         Route::get('/attendance/monthly', [AttendanceController::class, 'monthly']);
         Route::put('/attendance/{dailyAttendance}', [AttendanceController::class, 'update']);

@@ -56,17 +56,17 @@
           <div class="d-flex align-center py-2">
             <div class="mr-3 d-flex gap-1">
               <!-- Profil rasmi -->
-              <v-avatar size="36" color="primary">
+              <v-avatar size="48" color="primary">
                 <v-img v-if="item.employee?.photo_url" :src="item.employee.photo_url" cover />
-                <span v-else class="text-caption text-white">
+                <span v-else class="text-body-2 text-white font-weight-bold">
                   {{ (item.employee?.last_name?.[0] || '') + (item.employee?.first_name?.[0] || '') }}
                 </span>
               </v-avatar>
               <!-- Qurilmadan kelgan yuz rasmi -->
-              <v-avatar v-if="item.face_log_id" size="36" rounded="lg">
+              <v-avatar v-if="item.face_log_id" size="48" rounded="lg">
                 <v-img :src="`/api/v1/attendance/logs/${item.face_log_id}/picture`" cover>
                   <template #error>
-                    <v-icon size="20" color="grey">mdi-face-recognition</v-icon>
+                    <v-icon size="24" color="grey">mdi-face-recognition</v-icon>
                   </template>
                 </v-img>
               </v-avatar>
